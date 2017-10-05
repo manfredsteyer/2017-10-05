@@ -34,5 +34,4 @@ import { FLIGHT_BOOKING_ROUTES } from './flight-booking.routes';
   ]
 })
 export class FlightBookingModule {
-
 }

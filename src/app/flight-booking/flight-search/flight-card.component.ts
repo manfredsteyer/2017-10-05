@@ -12,10 +12,6 @@ export class FlightCardComponent {
   @Input() selected: boolean;
   @Output() selectedChange = new EventEmitter<boolean>();
 
-  constructor(private element: ElementRef, private zone: NgZone) {
-    
-  }
-
   select() {
     this.selected = true;
     this.selectedChange.next(/* $event= */ this.selected);
@@ -26,6 +22,6 @@ export class FlightCardComponent {
     this.selectedChange.next(this.selected);
   }
 
-  
+
 
 }
