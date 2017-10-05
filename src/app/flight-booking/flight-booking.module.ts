@@ -11,6 +11,7 @@ import { PassengerSearchComponent } from './passenger-search/passenger-search.co
 import { FlightEditComponent } from './flight-edit/flight-edit.component';
 import { TranslateModule } from "@ngx-translate/core";
 import { FLIGHT_BOOKING_ROUTES } from './flight-booking.routes';
+import { FlightLookaheadComponent } from './lookahead/flight-lookahead.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { FLIGHT_BOOKING_ROUTES } from './flight-booking.routes';
     FlightSearchComponent,
     FlightCardComponent,
     PassengerSearchComponent,
-    FlightEditComponent
+    FlightEditComponent,
+    FlightLookaheadComponent
   ],
   providers: [
     FlightService
