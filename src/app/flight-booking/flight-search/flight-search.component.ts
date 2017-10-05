@@ -34,6 +34,9 @@ export class FlightSearchComponent {
   }
 
   search(): void {
+
+      if (!this.from || !this.to) return;
+
       this.flightService.load(this.from, this.to);
   }
 
