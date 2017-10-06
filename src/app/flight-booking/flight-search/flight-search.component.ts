@@ -5,6 +5,9 @@ import { Flight } from '../../entities/flight';
 import { NgForm } from '@angular/forms';
 import { Observable, Observer } from 'rxjs';
 import { EventService } from '../../event.service';
+import { AppState } from '../../model/app.state';
+import { Store } from '@ngrx/store';
+import { FlightStatistics } from '../model/flight.state';
 
 @Component({
   selector: 'flight-search',
@@ -30,10 +33,16 @@ export class FlightSearchComponent {
   };
   //private http: Http;
 
+  flights$: Observable<Flight[]>;
+  statistic$: Observable<FlightStatistics>;
+
   constructor(
+    private store: Store<AppState>,
     private eventService: EventService,
     private flightService: FlightService) {
-    // this.http = http;
+
+    this.flights$ = this.store.select(s => s.flights.flights);
+    this.statistic$ = this.store.select(s => s.flights.statistics);
   }
 
   search(): void {

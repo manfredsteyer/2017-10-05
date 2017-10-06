@@ -6,12 +6,16 @@ import { Injectable, Inject } from '@angular/core';
 import { BASE_URL } from '../../app.tokens';
 // import 'rxjs/add/operator/connect';
 import 'rxjs';
+import { AppState } from '../../model/app.state';
+import { Store } from '@ngrx/store';
+import { FlightsLoadedAction } from '../model/flight.actions';
 
 @Injectable()
 export class FlightService {
 
   constructor(
     private http: HttpClient,
+    private store: Store<AppState>,
     @Inject(BASE_URL) private baseUrl: string) {
   }
 
@@ -47,6 +51,7 @@ export class FlightService {
         .subscribe(
           flights => {
             this.flights = flights;
+            this.store.dispatch(new FlightsLoadedAction(flights));
           },
           err => {
             console.error(err)

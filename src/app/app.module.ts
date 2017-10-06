@@ -16,6 +16,10 @@ import { SharedModule } from './shared/shared.module';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { FlightBookingModule } from "app/flight-booking/flight-booking.module";
 import { BasketComponent } from './basket/basket.component';
+import { StoreModule } from '@ngrx/store';
+import { appReducerMap } from './model/app.reducer';
+import { initAppState } from './model/app.state';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   imports: [
@@ -24,7 +28,9 @@ import { BasketComponent } from './basket/basket.component';
     HttpClientModule,
     FlightBookingModule,
     RouterModule.forRoot(APP_ROUTES),
-    SharedModule
+    SharedModule,
+    StoreModule.forRoot(appReducerMap, { initialState: initAppState }),
+    StoreDevtoolsModule.instrument()
   ],
   declarations: [
     AppComponent,
