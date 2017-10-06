@@ -38,7 +38,8 @@
     -->
   <flight-card
     [item]="f"
-    [(selected)]="basket[f.id]"></flight-card>
+    [selected]="basket[f.id]"
+    (selectedChange)="select(f, $event)"></flight-card>
 
 
 </div>

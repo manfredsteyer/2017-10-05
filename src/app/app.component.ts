@@ -12,8 +12,13 @@ import { TranslateService } from "@ngx-translate/core";
 export class AppComponent {
   showWaitInfo: boolean;
 
+  showBasket: boolean = true;
   constructor(
     private router: Router) {
+  }
+
+  toggleBasket(): void {
+    this.showBasket = !this.showBasket;
   }
 
   initRouterEvents() {

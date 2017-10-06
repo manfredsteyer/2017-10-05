@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { FlightBookingModule } from "app/flight-booking/flight-booking.module";
+import { BasketComponent } from './basket/basket.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { FlightBookingModule } from "app/flight-booking/flight-booking.module";
   ],
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    BasketComponent
   ],
   providers: [
     EventService,

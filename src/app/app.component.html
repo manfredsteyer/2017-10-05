@@ -10,12 +10,21 @@
     <li><a routerLink="passenger-search">Passenger Search</a></li>
     <li><a routerLink="flight-lookahead">Lookahead</a></li>
 
+    <li><a (click)="toggleBasket()">Toogle Basket</a></li>
+
   </ul>
 </nav>
 
 <div class="container">
+  <div class="col-sm-9">
     <router-outlet></router-outlet>
+  </div>
+  <div class="col-sm-3" *ngIf="showBasket">
+    <basket></basket>
+  </div>
 </div>
+
+
 
 <!-- 2nd outlet -->
 <router-outlet name="aux"></router-outlet>

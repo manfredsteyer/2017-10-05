@@ -1,9 +1,14 @@
-
 import { Injectable } from '@angular/core';
-import { Subject, BehaviorSubject, ReplaySubject } from 'rxjs';
 import { Flight } from './entities/flight';
+import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 @Injectable()
 export class EventService {
-  public flightSelected = new ReplaySubject<Flight>(2);
+
+  flightSelected = new ReplaySubject<Flight>();
+
+  constructor() { }
+
 }

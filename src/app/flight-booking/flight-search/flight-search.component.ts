@@ -4,6 +4,7 @@ import { FlightService } from './flight.service';
 import { Flight } from '../../entities/flight';
 import { NgForm } from '@angular/forms';
 import { Observable, Observer } from 'rxjs';
+import { EventService } from '../../event.service';
 
 @Component({
   selector: 'flight-search',
@@ -29,7 +30,9 @@ export class FlightSearchComponent {
   };
   //private http: Http;
 
-  constructor(private flightService: FlightService) {
+  constructor(
+    private eventService: EventService,
+    private flightService: FlightService) {
     // this.http = http;
   }
 
@@ -44,8 +47,13 @@ export class FlightSearchComponent {
     this.flightService.delay();
   }
 
-  select(f: Flight) {
-    this.selectedFlight = f;
+  select(f: Flight, selected: boolean) {
+
+    this.basket[f.id] = selected;
+    if (selected) {
+      this.eventService.flightSelected.next(f);
+    }
+
   }
 
 }

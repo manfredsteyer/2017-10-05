@@ -48,7 +48,12 @@ export class FlightLookaheadComponent implements OnInit {
                             .do(v => this.loading = false);
     }
 
-    load(from: string)  {
+
+
+
+
+
+    load(from: string): Observable<Flight[]>  {
         let url = "http://www.angular.at/api/flight";
 
         let params = new HttpParams()
