@@ -8,6 +8,7 @@ import { EventService } from '../../event.service';
 import { AppState } from '../../model/app.state';
 import { Store } from '@ngrx/store';
 import { FlightStatistics } from '../model/flight.state';
+import { FlightsLoadAction } from '../model/flight.actions';
 
 @Component({
   selector: 'flight-search',
@@ -48,8 +49,9 @@ export class FlightSearchComponent {
   search(): void {
 
       if (!this.from || !this.to) return;
+      // this.flightService.load(this.from, this.to);
+      this.store.dispatch(new FlightsLoadAction({ from: this.from, to: this.to }));
 
-      this.flightService.load(this.from, this.to);
   }
 
   delay(): void {
